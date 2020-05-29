@@ -1,0 +1,59 @@
+<html>
+<head>
+
+<title>Quiz</title>
+<style>
+#quiz {
+	margin-left: 10px;
+	background: #d2def2;
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	border-radius: 20px;
+
+}
+
+button {
+	background: green;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+	font-size: 16px;
+	transition-duration: .5s;
+	margin-top: 15px;
+}
+
+button:hover {
+	background: white;
+	border: 1px solid green;
+	color: black;
+	cursor: pointer;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+<h1> quiz !</h1>
+
+<form id="quiz" action="/quiz" method="POST">
+<h1> your result is {{result}}
+
+
+<p class = "questions">Javascript is a Programing...</p>
+<input id = "textbox" type ="text" name="question1">
+
+<p class = "questions">React is Javascript...</p>
+<input type = "radio"  name ="question2" value = "Framework"> Framework<br>
+<input type = "radio"  name ="question2" value = "Heartford"> Heartford<br>
+
+<p class = "questions">Boolean in Javascript is ?</p>
+<input type = "radio" name  ="question3" value = "true_or_false"> true_or_false<br>
+<input type = "radio" name  ="question3" value = "All Benny's"> All Benny's<br>
+<button  >Submit </button>
+</form>
+
+</html>
