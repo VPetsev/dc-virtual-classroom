@@ -32,12 +32,9 @@ router.get("/student-dashboard/", async (req, res) => {
 //     res.render("student/student-my-quizzes", quiz.dataValues)
 // })
 
-router.get("/student-quiz-result-details", (req, res) => {
-    res.render("student/student-quiz-result-details")
-})
+router.get("/student-quiz-results", (req, res) => {
 
-router.get("/student-quiz-result", (req, res) => {
-    res.render("student/student-quiz-result")
+    res.render("student/student-quiz-results")
 })
 
 router.get("/student-take-quiz/:id", async (req, res) => {
@@ -101,7 +98,7 @@ router.post("/student-take-quiz/:id", async (req, res) => {
     // console.log(quiz)
 
 
-    res.redirect("/student/student-quiz-result")
+    res.redirect("/student/student-quiz-results")
 })
 
 

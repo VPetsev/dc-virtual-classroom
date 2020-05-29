@@ -64,259 +64,126 @@
                                         <input type="text" class="form-control" placeholder="Quiz Title" name="quizTitle" required>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">Question</label>
-                                        <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
-                                        <div style="height: 150px;" class="mb-0" data-toggle="quill" data-quill-placeholder="Question" name="questionField" required>
-                                            An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">Question 1</div>
                                         </div>
-                                        <small class="form-text text-muted">Shortly describe the question.</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Question Type</label>
-                                        <select name="category" class="form-control custom-select">
-                                            <option value="vuejs">Multiple Choice</option>
-                                            {{! <option value="vuejs">Single Answer</option>
-                                            <option value="vuejs">Essay</option> }}
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="select01">Answers</label>
-                                        <input type="text" class="form-control" placeholder="Quiz Choice A" name="choiceA" required>
-                                        <input type="text" class="form-control" placeholder="Quiz Choice B" name="choiceB" required>
-                                        <input type="text" class="form-control" placeholder="Quiz Choice C" name="choiceC" required>
-                                        <input type="text" class="form-control" placeholder="Quiz Choice D" name="choiceD" required>
-                                        <label class="form-label" for="select01">Correct Answer</label>
-                                        <input type="text" class="form-control" placeholder="Correct Answer (A, B, C, D)" name="correctAnswer" required>
-                                    </div>
-                                    <div class="page-separator">
-                                        <div class="page-separator__text">Assign to student</div>
-                                    </div>
-                                <div class="row mb-32pt">
-                                    <div class="col-lg-8 d-flex align-items-center">
-                                        <div class="flex" style="max-width: 100%">
-                                            <div class="card m-0">
-                                                <div class="table-responsive" data-toggle="lists" data-lists-sort-by="js-lists-values-employee-name" data-lists-values='["js-lists-values-employee-name", "js-lists-values-employer-name", "js-lists-values-projects", "js-lists-values-activity", "js-lists-values-earnings"]'>
-                                                    <table class="table mb-0 thead-border-top-0 table-nowrap">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 18px;" class="pr-0">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input js-toggle-check-all" data-target="#toggle" id="customCheckAlltoggle">
-                                                                        <label class="custom-control-label" for="customCheckAlltoggle"><span class="text-hide">Toggle all</span></label>
-                                                                    </div>
-                                                                </th>
-                                                                <th>
-                                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-employee-name">Employee</a>
-                                                                </th>
-                                                                <th style="width: 37px;">Status</th>
-                                                                <th style="width: 120px;">
-                                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-activity">Activity</a>
-                                                                </th>
-                                                                <th style="width: 51px;">
-                                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-earnings">Earnings</a>
-                                                                </th>
-                                                                <th style="width: 24px;" class="pl-0"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="list" id="toggle">
-                                                            <tr class="selected">
-                                                                <td class="pr-0">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input js-check-selected-row" checked="" id="customCheck1_toggle1">
-                                                                        <label class="custom-control-label" for="customCheck1_toggle1"><span class="text-hide">Check</span></label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                                                        <div class="avatar avatar-sm mr-8pt">
-                                                                            <img src="assets/images/people/110/guy-1.jpg" alt="Avatar" class="avatar-img rounded-circle">
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <div class="d-flex flex-column">
-                                                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Michael Smith</strong></p>
-                                                                                <small class="js-lists-values-employee-email text-50">lorna_kirlin@nora.biz</small>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-                                                                </td>
-                                                                <td class="text-50 js-lists-values-activity small">3 days ago</td>
-                                                                <td class="js-lists-values-earnings small">$12,402</td>
-                                                                <td class="text-right pl-0">
-                                                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="pr-0">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_toggle2">
-                                                                        <label class="custom-control-label" for="customCheck1_toggle2"><span class="text-hide">Check</span></label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                                                        <div class="avatar avatar-sm mr-8pt">
-                                                                            <span class="avatar-title rounded-circle">CS</span>
-                                                                        </div>
-                                                                        <div class="media-body">
-
-
-                                                                            <div class="d-flex flex-column">
-                                                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Connie Smith</strong></p>
-                                                                                <small class="js-lists-values-employee-email text-50">paolo.zieme@gmail.com</small>
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                </td>
-
-
-
-                                                                <td>
-
-
-                                                                    <a href="" class="chip chip-outline-secondary">User</a>
-
-
-                                                                </td>
-
-                                                                <td class="text-50 js-lists-values-activity small">1 week ago</td>
-                                                                <td class="js-lists-values-earnings small">$1,943</td>
-                                                                <td class="text-right pl-0">
-                                                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-
-                                                                <td class="pr-0">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_toggle3">
-                                                                        <label class="custom-control-label" for="customCheck1_toggle3"><span class="text-hide">Check</span></label>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-
-                                                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                                                        <div class="avatar avatar-sm mr-8pt">
-
-                                                                            <img src="assets/images/people/110/guy-2.jpg" alt="Avatar" class="avatar-img rounded-circle">
-
-
-                                                                        </div>
-                                                                        <div class="media-body">
-
-
-                                                                            <div class="d-flex flex-column">
-                                                                                <p class="mb-0"><strong class="js-lists-values-employee-name">John Connor</strong></p>
-                                                                                <small class="js-lists-values-employee-email text-50">vida_glover@gmail.com</small>
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                </td>
-
-
-
-                                                                <td>
-
-
-                                                                    <a href="" class="chip chip-outline-secondary">Manager</a>
-
-
-                                                                </td>
-
-                                                                <td class="text-50 js-lists-values-activity small">2 weeks ago</td>
-                                                                <td class="js-lists-values-earnings small">$1,401</td>
-                                                                <td class="text-right pl-0">
-                                                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr class="selected">
-
-                                                                <td class="pr-0">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input js-check-selected-row" checked="" id="customCheck1_toggle4">
-                                                                        <label class="custom-control-label" for="customCheck1_toggle4"><span class="text-hide">Check</span></label>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-
-                                                                    <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                                                        <div class="avatar avatar-sm mr-8pt">
-
-
-                                                                            <span class="avatar-title rounded-circle">LB</span>
-
-                                                                        </div>
-                                                                        <div class="media-body">
-
-
-                                                                            <div class="d-flex flex-column">
-                                                                                <p class="mb-0"><strong class="js-lists-values-employee-name">Laza Bogdan</strong></p>
-                                                                                <small class="js-lists-values-employee-email text-50">annabell.kris@yahoo.com</small>
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                </td>
-
-
-
-                                                                <td>
-
-
-                                                                    <a href="" class="chip chip-outline-secondary">Admin</a>
-
-
-                                                                </td>
-
-                                                                <td class="text-50 js-lists-values-activity small">3 weeks ago</td>
-                                                                <td class="js-lists-values-earnings small">$22,402</td>
-                                                                <td class="text-right pl-0">
-                                                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>
-                                                                </td>
-                                                            </tr>
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-
+                                        <div class="form-group">
+                                            <label class="form-label">Question</label>
+                                            <small class="form-text text-muted">Shortly describe the question.</small>
+                                            <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
+                                            <div style="height: 150px;" class="mb-0" data-toggle="quill" data-quill-placeholder="Question" name="questionField1" required>
+                                                An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?
                                             </div>
-
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="select01">Answers</label>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice A" name="choiceA1" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice B" name="choiceB1" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice C" name="choiceC1" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice D" name="choiceD1" required>
+                                            <label class="form-label" for="select01">Correct Answer</label>
+                                            <input type="text" class="form-control" placeholder="Correct Answer (A, B, C, D)" name="correctAnswer1" required>
                                         </div>
                                     </div>
-
-                                    <!-- {{#myUsers}}
                                     <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input id="customCheck01" type="checkbox" class="custom-control-input">
-                                            <label for="customCheck01" class="custom-control-label">{{username}}</label>
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">Question 2</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Question</label>
+                                            <small class="form-text text-muted">Shortly describe the question.</small>
+                                            <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
+                                            <div style="height: 150px;" class="mb-0" data-toggle="quill" data-quill-placeholder="Question" name="questionField2" required>
+                                                An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="select02">Answers</label>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice A" name="choiceA2" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice B" name="choiceB2" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice C" name="choiceC2" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice D" name="choiceD2" required>
+                                            <label class="form-label" for="select02">Correct Answer</label>
+                                            <input type="text" class="form-control" placeholder="Correct Answer (A, B, C, D)" name="correctAnswer2" required>
                                         </div>
                                     </div>
-                                    {{/myUsers}} -->
-                                        <!-- <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Assign to Student</label>
-                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="emailAddress">
-                                            <option selected>Select student...</option>
-                                            {{#users}}
-                                                <option>{{username}}</option>
-                                            {{/users}}
-                                    </div> -->
-                                    <div>
-                                        <button class="btn btn-accent" type="submit"> Create Quiz </button>
+                                    <div class="form-group">
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">Question 3</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Question</label>
+                                            <small class="form-text text-muted">Shortly describe the question.</small>
+                                            <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
+                                            <div style="height: 150px;" class="mb-0" data-toggle="quill" data-quill-placeholder="Question" name="questionField3" required>
+                                                An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="select03">Answers</label>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice A" name="choiceA3" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice B" name="choiceB3" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice C" name="choiceC3" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice D" name="choiceD3" required>
+                                            <label class="form-label" for="select03">Correct Answer</label>
+                                            <input type="text" class="form-control" placeholder="Correct Answer (A, B, C, D)" name="correctAnswer3" required>
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">Question 4</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Question</label>
+                                            <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
+                                            <small class="form-text text-muted">Shortly describe the question.</small>
+                                            <div style="height: 150px;" class="mb-0" data-toggle="quill" data-quill-placeholder="Question" name="questionField4" required>
+                                                An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="select04">Answers</label>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice A" name="choiceA4" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice B" name="choiceB4" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice C" name="choiceC4" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice D" name="choiceD4" required>
+                                            <label class="form-label" for="select04">Correct Answer</label>
+                                            <input type="text" class="form-control" placeholder="Correct Answer (A, B, C, D)" name="correctAnswer4" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">Question 5</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Question</label>
+                                            <!-- <textarea class="form-control" rows="3" placeholder="Question"></textarea> -->
+                                            <small class="form-text text-muted">Shortly describe the question.</small>
+                                            <div style="height: 150px;" class="mb-0" data-toggle="quill" data-quill-placeholder="Question" name="questionField5" required>
+                                                An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript?
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="select05">Answers</label>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice A" name="choiceA5" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice B" name="choiceB5" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice C" name="choiceC5" required>
+                                            <input type="text" class="form-control" placeholder="Quiz Choice D" name="choiceD5" required>
+                                            <label class="form-label" for="select05">Correct Answer</label>
+                                            <input type="text" class="form-control" placeholder="Correct Answer (A, B, C, D)" name="correctAnswer5" required>
+                                        </div>
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">Assign to Student</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Student Email Address</label>
+                                            <input type="text" class="form-control" placeholder="Student Email Address" name="emailAdd" required>
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <button class="btn btn-accent form-group" type="submit"> Create Quiz </button>
+                                    </div>
+                                 </div>
                                 </form>
                             </div>
                         </div>
