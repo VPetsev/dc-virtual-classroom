@@ -5,9 +5,12 @@ const models = require("../models")
 
 const SALT_ROUNDS = 10
 
-
 router.get("/", (req, res) => {
     res.render("main")
+})
+
+router.get("/comingSoon", (req, res) => {
+    res.render("comingSoon")
 })
 
 router.get("/login", (req, res) => {
@@ -62,6 +65,8 @@ router.post("/login", async (req, res) => {
             username: email
         }
     })
+
+    console.log("User logged in")
 
     if (user != null) {
         bcrypt.compare(password, user.password, (error, result) => {

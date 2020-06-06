@@ -1,43 +1,11 @@
 const express = require("express")
 const router = express.Router()
-const bcrypt = require("bcrypt")
 const models = require("../models")
-
-const SALT_ROUNDS = 10
-
-// implementing partials for each folder? Have to set mustachexpress engine route to include this folder's partials
-
-
 
 router.get("/instructor-dash", async (req, res) => {
     const quiz = await models.Quiz.findAll()
     const quizValues = quiz.map((ele) => ele.dataValues)
-    console.log(quizValues)
     res.render("instructor/instructor-dash", { quizzes: quizValues })
-})
-router.get("/instructor-courses", (req, res) => {
-    res.render("instructor/instructor-courses")
-})
-
-// router.get("/instructor-quizzes/quizId", (req, res) => {
-//     // const quizId = req.params.id
-//     // const quiz = await models.Quiz.findOne({
-//     //     where: {
-//     //         id: quizId
-//     //     }
-//     // })
-
-//     console.log("hello world")
-
-//     res.render(`instructor/instructor-quizzes/${quizId}`)
-// })
-
-router.get("/instructor-quizzes", async (req, res) => {
-    const quiz = await models.Quiz.findAll()
-    const quizValues = quiz.map((ele) => ele.dataValues)
-    console.log(quizValues)
-
-    res.render("instructor/instructor-quizzes", { quizzes: quizValues })
 })
 
 router.get("/instructor-quizzes/:id", async (req, res) => {
@@ -47,14 +15,7 @@ router.get("/instructor-quizzes/:id", async (req, res) => {
             id: quizId
         }
     })
-
-    console.log(quiz)
-
     res.render("instructor/instructor-quiz", quiz.dataValues)
-})
-
-router.get("/instructor-edit-course", (req, res) => {
-    res.render("instructor/instructor-edit-course")
 })
 
 // EDIT quiz functionality
@@ -65,7 +26,6 @@ router.get("/instructor-edit-quiz/:id", async (req, res) => {
             id: quizId
         }
     })
-    console.log(quiz.dataValues)
 
     res.render("instructor/instructor-edit-quiz", quiz.dataValues)
 })
@@ -74,7 +34,7 @@ router.post("/update-quiz-answer/:id", async (req, res) => {
     const quizId = req.params.id
     const correctAnswer = req.body.correctAnswer
     
-    const updatedQuiz = await models.Quiz.update({
+    await models.Quiz.update({
         correct: correctAnswer
     }, {
         where: {
@@ -88,7 +48,7 @@ router.post("/update-quiz-answer/:id", async (req, res) => {
 router.post("/update-title-name/:id", async (req, res) => {
     const quizId = req.params.id
     const quizName = req.body.quizName
-    const updatedQuizName = await models.Quiz.update({
+    await models.Quiz.update({
         question: quizName
     }, {
         where: {
@@ -101,26 +61,15 @@ router.post("/update-title-name/:id", async (req, res) => {
 
 // Create Quiz
 router.get("/instructor-create-quiz", async (req, res) => {
-    // const users = []
-    
-    // models.User.findAll()
-    //     .then((results) => {
-    //         results.forEach((ele => users.push(ele.dataValues.username)))
-    // }).then(() => {
-    //     console.log(users)
-    // })
-    // console.log(myUsers)
-
-    const myUsers = await models.User.findAll()
-
+    const myUsers = await models.User.findAll({
+        where: {
+            userType: "student"
+        }
+    })
     const userIds = myUsers.map((ele) => ele.dataValues.username)
-    
     console.log(userIds)
-    // console.log(myUsers.dataValues.username)
 
-    // res.render("instructor/instructor-create-quiz", myUsers.dataValues)
-
-    res.render("instructor/instructor-create-quiz", userIds)
+    res.render("instructor/instructor-create-quiz", { users: myUsers })
 })
 
 router.post("/instructor-create-quiz", async (req, res) => {
@@ -133,16 +82,40 @@ router.post("/instructor-create-quiz", async (req, res) => {
     const correctAnswer = req.body.correctAnswer
     const question = req.body.questionField
     const emailAdd = req.body.emailAdd
-    const studentId = req.body.studentId
-    const sessionId = req.session.user
-    // assign to a student
 
+    console.log(emailAdd)
 
-    const userObject = await models.User.findOne({
-        where: {
-            username: emailAdd
+    console.log(typeof (emailAdd))
+
+    let userObject
+    // const quizValues = quiz.map((ele) => ele.dataValues)
+    
+    if (typeof (emailAdd) == "object") {
+        console.log("multiple users")
+        // parse emailadd array 
+        console.log(emailAdd[1])
+        for (let i = 0; i < emailAdd.length; i++) {
+            models.User.findAll({
+                where: {
+                    username: emailAdd
+                }
+            }).then((response) => {
+                console.log(response[0].dataValues)
+                userObject.push(response[0].dataValues)
+            })
         }
-    })
+        console.log(userObject)
+
+    } else {
+        console.log("not multiple")
+        userObject = await models.User.findOne({
+            where: {
+                username: emailAdd
+            }
+        })
+    }
+
+    console.log(userObject.dataValues)
 
     const userId = userObject.dataValues.id
 
@@ -158,6 +131,8 @@ router.post("/instructor-create-quiz", async (req, res) => {
         assignedTo: userId
     })
 
+    // models.Quiz.increment('questionNum', { where: { questionNum: null}})
+
     const persistedQuiz = await quiz.save()
 
     if (persistedQuiz != null) {
@@ -165,6 +140,26 @@ router.post("/instructor-create-quiz", async (req, res) => {
     } else {
         res.render('/instructor/instructor-create-quiz', { message: 'Unable to add quiz' })
     }
+})
+
+router.get("/instructor-delete-quiz/:id", async (req, res) => {
+    let quizId = req.params.id
+
+    await models.completedquizes.update({
+        quizId: null
+    }, {
+        where: {
+            quizId: quizId
+        }
+    }).then(() => {
+        models.Quiz.destroy({
+            where: {
+                id: quizId
+            }
+        })
+    })
+
+    res.redirect("/instructor/instructor-dash")
 })
 
 module.exports = router
